@@ -19,7 +19,7 @@ on:
 jobs:
   terrascan:
     name: 'Terrascan'
-    uses: './.github/actions/terrascan@main'
+    uses: './.github/workflows/terrascan.yml'
     secrets: inherit
     with:
       iac_dir: 'src'
