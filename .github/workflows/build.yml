@@ -32,14 +32,18 @@ jobs:
         with:
           iac_dir: 'src'
 
-  # terratest:
-  #   name: 'Unit Test'
-  #   uses: './.github/templates/terratest'
-  #   secrets: inherit
+  terratest:
+    name: 'Unit Test'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: 'Unit Test'
+        uses: './.github/actions/terratest'
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    needs: [terrascan]
+    needs: [terrascan, terratest]
     # permissions:
     #   pull-requests: write
     steps:
