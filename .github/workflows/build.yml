@@ -36,6 +36,10 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     needs: [terrascan]
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     # permissions:
     #   pull-requests: write
     steps:
