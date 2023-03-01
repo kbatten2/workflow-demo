@@ -49,4 +49,3 @@ jobs:
         uses: './.github/actions/terraform'
         with:
           src_directory: "src"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
