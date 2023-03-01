@@ -1,9 +1,11 @@
 name: TerraScan
 
-inputs:
-  iac_dir:
-    description: 'Which directory to run scan on'
-    required: true
+on:
+  workflow_call:
+    inputs:
+      iac_dir:
+        description: 'Which directory to run scan on'
+        required: true
 
 runs:
   using: "composite"
