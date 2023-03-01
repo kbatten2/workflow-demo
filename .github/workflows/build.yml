@@ -17,12 +17,12 @@ on:
 #       - prod
 
 jobs:
-  # terrascan:
-  #   name: 'Terrascan'
-  #   uses: './.github/templates/terrascan@main'
-  #   secrets: inherit
-  #   with:
-  #     iac_dir: 'src'
+  terrascan:
+    name: 'Terrascan'
+    uses: './.github/templates/terrascan@v1'
+    secrets: inherit
+    with:
+      iac_dir: 'src'
 
   # terratest:
   #   name: 'Unit Test'
