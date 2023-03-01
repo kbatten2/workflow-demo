@@ -32,17 +32,25 @@ jobs:
   #   name: 'Unit Test'
   #   uses: './.github/templates/terratest'
   #   secrets: inherit
+  # terraform:
+  #   name: 'Terraform'
+  #   runs-on: ubuntu-latest
+  #   needs: [terrascan]
+  #   # permissions:
+  #   #   pull-requests: write
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #     - name: Terraform
+  #       uses: './.github/actions/terraform'
+  #       with:
+  #         src_directory: "src"
+  #       secrets: inherit
   terraform:
     name: 'Terraform'
-    runs-on: ubuntu-latest
     needs: [terrascan]
-    # permissions:
-    #   pull-requests: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Terraform
-        uses: './.github/actions/terraform'
-        with:
-          src_directory: "src"
-        secrets: inherit
+    runs-on: ubuntu-latest
+    uses: './.github/actions/terraform'
+    with:
+      src_directory: 'src'
+    secrets: inherit
