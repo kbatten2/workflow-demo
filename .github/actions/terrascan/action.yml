@@ -4,6 +4,9 @@ inputs:
   iac_dir:
     description: 'Which directory to run scan on'
     required: true
+secrets:
+  GITHUB_TOKEN:
+    required: true
 
 runs:
   using: "composite"
