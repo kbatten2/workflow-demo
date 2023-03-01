@@ -19,6 +19,10 @@ jobs:
   terrascan:
     name: 'Terrascan'
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -36,10 +40,6 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     needs: [terrascan]
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
     # permissions:
     #   pull-requests: write
     steps:
