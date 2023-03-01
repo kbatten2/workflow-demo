@@ -7,14 +7,14 @@ on:
       - src/**
   workflow_dispatch:
 
-# inputs:
-#   environment:
-#     description: Which environment is being deployed to
-#     type: choice
-#     default: non-prod
-#     options:
-#       - non-prod
-#       - prod
+inputs:
+  environment:
+    description: Which environment is being deployed to
+    type: choice
+    default: non-prod
+    options:
+      - non-prod
+      - prod
 
 jobs:
   terrascan:
