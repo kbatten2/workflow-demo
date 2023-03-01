@@ -19,10 +19,16 @@ on:
 jobs:
   terrascan:
     name: 'Terrascan'
-    uses: './.github/actions/terrascan'
-    secrets: inherit
-    with:
-      iac_dir: 'src'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: 'Terrascan'
+        uses: './.github/actions/terrascan'
+        secrets: inherit
+        with:
+          iac_dir: 'src'
 
   # terratest:
   #   name: 'Unit Test'
