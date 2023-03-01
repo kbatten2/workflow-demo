@@ -35,14 +35,14 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    # needs: [terrascan, terratest]
+    needs: [terrascan]
     # permissions:
     #   pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      # - name: Terraform
-      #   uses: './.github/templates/terraform'
-      #   secrets: inherit
-      #   with:
-      #     run_apply: false
+      - name: Terraform
+        uses: './.github/actions/terraform'
+        secrets: inherit
+        with:
+          src_directory: "src"

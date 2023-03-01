@@ -1,0 +1,17 @@
+name: Terraform
+
+inputs:
+  src_directory:
+    required: true
+    type: string
+    description: "Source directory to run terraform"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+    - name: Terraform Format
+      id: fmt
+      run: terraform fmt -check
+      working-directory: ${{ inputs.src_directory }}
